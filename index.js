@@ -1,6 +1,6 @@
 const express = require('express');
-const faker = require('faker');
-
+//const faker = require('faker');
+const routerApi  = require('./routes');
 
 const app = express();
 const port = 3000;
@@ -9,6 +9,8 @@ app.get('/', (req, res) => {
   res.send('hola soy un servidor express :)');
 });
 
+ 
+/*
 app.get('/nueva-ruta', (req, res) => {
   res.send('hola soy nueva ruta ');
 });
@@ -22,33 +24,6 @@ app.get('/categories/:categoryId/products/:productId', (req, res) => {
   });
 });
 
-app.get('/products/:id', (req, res) => {
-  const { id } = req.params;
-  res.json({
-    id: id,
-    name: 'product 2',
-    price: 2000,
-  });
-});
-
-app.get('/products', (req, res) => {
-  
-  const products = [];
-  for (let index=0; index<100; index++){
-
-products.push({
-
-   name: faker.commerce.productName(),
-   price: parseInt(faker.commerce.price(),10),
-   image: faker.image.imageUrl(),
-    
-
-});
-
-  }
-  
-   res.json(products);
-});
 
 app.get('/users', (req, res) => {
   const { limit, offset } = req.query;
@@ -59,7 +34,9 @@ app.get('/users', (req, res) => {
     });
   } else res.send('no hay parametros');
 });
+*/
 
+routerApi(app);
 
 app.listen(port, () => {
   console.log('mi port' + port);
