@@ -1,10 +1,32 @@
 const express = require('express');
+ 
 //const faker = require('faker');
 const routerApi  = require('./routes');
+ 
 
 const app = express();
 const port = 3000;
 
+
+app.use(express.json());
+
+
+routerApi(app);
+
+
+
+
+
+app.listen(port, () => {
+  console.log('mi port' + port);
+});
+
+
+
+
+
+
+/*
 app.get('/', (req, res) => {
   res.send('hola soy un servidor express :)');
 });
@@ -34,6 +56,7 @@ app.get('/users', (req, res) => {
     });
   } else res.send('no hay parametros');
 });
+<<<<<<< HEAD
 */
 
 routerApi(app);
@@ -41,3 +64,4 @@ routerApi(app);
 app.listen(port, () => {
   console.log('mi port' + port);
 });
+ 

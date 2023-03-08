@@ -1,3 +1,4 @@
+ 
 const  pool  = require('../db');
 const PORT = require('../config.js');
  
@@ -11,12 +12,14 @@ const PORT = require('../config.js');
 class ProductsService {
 
   constructor(){
+ 
     this.products = [];
     this.generate();
   }
 
   generate() {
     const limit = 100;
+ 
     
   }
 
@@ -66,7 +69,7 @@ class ProductsService {
     this.products.splice(index, 1);
     return { id };
   }
-
+ 
 }
 
 module.exports = ProductsService;
