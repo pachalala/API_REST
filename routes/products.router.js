@@ -31,13 +31,21 @@ productsRouter.get('/:id', (req, res) => {
   });
 
   
+
+  productsRouter.get('/',     (req, res) => {
+   
+    const products =   service.find();
+    res.json(products);
+
+  });
+/*
   productsRouter.get('/',   async (req, res) => {
    
     const products = await service.find();
     res.json(products);
 
   });
-
+*/
   module.exports = productsRouter; 
 
  

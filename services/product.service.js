@@ -7,13 +7,17 @@ import   {pool }  from '../db.js'
 import {PORT} from '../config.js'
 
 
-
+ 
 
 
 export  class ProductsService {
 
+
+ 
   constructor(){
  
+     
+
     this.products = [];
     this.generate();
   }
@@ -35,7 +39,17 @@ export  class ProductsService {
 
   find() {
     const [rows] =     pool.query('SELECT * FROM users')
-      res.json(rows)
+
+     return (rows);
+
+
+     return( {
+      id: 123,
+      name: 'product 3',
+      price: 2000,
+    } );   
+    
+   
   }
 
   async findOne(id) {
