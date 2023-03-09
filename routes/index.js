@@ -1,5 +1,6 @@
-const productsRouter = require('./products.router');
-
+ 
+import {productsRouter } from './products.router.js' ;
+ 
 function routerApi(app){
 
  

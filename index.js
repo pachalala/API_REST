@@ -1,8 +1,6 @@
-const express = require('express');
- 
-//const faker = require('faker');
-const routerApi  = require('./routes');
- 
+import express from 'express'
+  
+import routerApi from './routes/index.js';
 
 const app = express();
 const port = 3000;
@@ -10,19 +8,7 @@ const port = 3000;
 
 app.use(express.json());
 
-
-routerApi(app);
-
-
-
-
-
-app.listen(port, () => {
-  console.log('mi port' + port);
-});
-
-
-
+ 
 
 
 

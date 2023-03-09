@@ -1,7 +1,12 @@
  
-const express = require('express');
+ 
+import {express } from 'express' ;
 
-const ProductsService = require('./../services/product.service');
+import ProductsService from './../services/product.service' ;
+
+ 
+
+ 
 const router = express.Router();
  
 const service = new ProductsService();
