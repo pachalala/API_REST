@@ -1,15 +1,16 @@
  
-const  pool  = require('../db');
-const PORT = require('../config.js');
- 
-//import { pool } from '../db.js'
-// import {PORT} from '../config.js'
+//const  pool  = require('../db');
+//const PORT = require('../config.js');
+
+import express from 'express'
+import   {pool }  from '../db.js'
+import {PORT} from '../config.js'
 
 
 
 
 
-class ProductsService {
+export  class ProductsService {
 
   constructor(){
  
@@ -72,4 +73,4 @@ class ProductsService {
  
 }
 
-module.exports = ProductsService;
+//module.exports = ProductsService;

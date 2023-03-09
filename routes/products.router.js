@@ -1,17 +1,16 @@
  
  
-import {express } from 'express' ;
+import  express   from 'express' ;
 
-import ProductsService from './../services/product.service' ;
-
+import  { ProductsService}   from './../services/product.service.js'; 
  
 
  
-const router = express.Router();
+const productsRouter = express.Router();
  
 const service = new ProductsService();
 
-router.get('/:id', (req, res) => {
+productsRouter.get('/:id', (req, res) => {
     const { id } = req.params;
  
     res.json({
@@ -22,7 +21,7 @@ router.get('/:id', (req, res) => {
   });
 
 
-  router.get('/test', (req, res) => {
+  productsRouter.get('/test', (req, res) => {
     const { id } = req.params;
     res.json({
       id: id,
@@ -32,13 +31,13 @@ router.get('/:id', (req, res) => {
   });
 
   
-  router.get('/',   async (req, res) => {
+  productsRouter.get('/',   async (req, res) => {
    
     const products = await service.find();
     res.json(products);
 
   });
 
-  module.exports = router; 
+  module.exports = productsRouter; 
 
  
