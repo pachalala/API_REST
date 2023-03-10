@@ -1,15 +1,18 @@
  
-//import {productsRouter } from './products.router.js' ;
+ import {platosRouter } from './platos.router.js' ;
  
 
 import  express   from 'express' ;
-import { ProductsService } from '../services/product.service.js' 
+ 
+import   {pool }  from '../db.js'
 
-const productsRouter = express.Router();
+//const productsRouter = express.Router();
  
 //const service = new ProductsService();
 
+/*
 const service = new ProductsService();
+
 
 
 productsRouter.get('/:id', (req, res) => {
@@ -33,19 +36,20 @@ productsRouter.get('/:id', (req, res) => {
   });
 
   
-  productsRouter.get('/',     (req, res) => {
-   
-    const products =   service.find();
+  productsRouter.get('/',    async (req, res) => {
+  
+    const products =  await service.find();
     res.json(products);
 
-  });
 
+  });
+*/
 
 export function routerApi(app){
 
  
 
-    app.use ('/products', productsRouter);
+    app.use ('/products', platosRouter);
 
 }
 

@@ -1,33 +1,19 @@
  
-//const  pool  = require('../db');
-//const PORT = require('../config.js');
-
-import express from 'express'
-import   {pool }  from '../db.js'
-import {PORT} from '../config.js'
-
-
+ import   {pool }  from '../db.js'
  
 
 
-export  class ProductsService {
+  
+export  class PlatosService {
 
 
  
   constructor(){
  
-     
-
-    this.products = [];
-    this.generate();
+      
   }
 
-  generate() {
-    const limit = 100;
- 
-    
-  }
-
+  
   async create(data) {
     const newProduct = {
       id: 1,
@@ -37,18 +23,19 @@ export  class ProductsService {
     return newProduct;
   }
 
-  find() {
-    const [rows] =     pool.query('SELECT * FROM users')
+  async find() {
+    
+    const [rows] =   await  pool.query('SELECT * FROM platos')
 
      return (rows);
-
-
+ 
+/*
      return( {
       id: 123,
       name: 'product 3',
       price: 2000,
     } );   
-    
+  */  
    
   }
 
@@ -86,5 +73,4 @@ export  class ProductsService {
   }
  
 }
-
-//module.exports = ProductsService;
+ 
