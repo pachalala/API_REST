@@ -24,11 +24,93 @@ export  class PlatosService {
   }
 
   async find() {
-    
+   
+    return(
+
+
+      [
+        {
+          id: 1,
+          nombre: "porotos con riendas",
+          integrantes: 1,
+      
+          ingredientes: [
+             {
+              id_ingrediente:1,
+              grs: 100
+             },
+             {
+              id_ingrediente:2,
+              grs: 50  
+             },
+             {
+              id_ingrediente:3,
+              grs: 50
+             },
+             {
+              id_ingrediente:7,
+              grs: 30
+             }
+          ]
+       
+        },
+        {
+          id: 2,
+          nombre: "pollo con arroz",
+          integrantes: 2,
+      
+          ingredientes: [
+             {
+              id_ingrediente:3,
+              grs: 50
+             },
+             {
+              id_ingrediente:6,
+              grs: 150
+             },
+             {
+              id_ingrediente:4,
+              grs: 50
+             }
+          ]
+       
+        },
+        {
+          id: 3,
+          nombre: "fideo bolognesa",
+          integrantes: 3,
+      
+          ingredientes: [
+             {
+              id_ingrediente:3,
+              grs: 50
+             },
+             {
+              id_ingrediente:9,
+              grs: 50
+             },
+             {
+              id_ingrediente:7,
+              grs: 50
+             },
+             {
+              id_ingrediente:8,
+              grs: 50
+             }
+          ]
+        }
+      ] 
+      
+
+    ); 
+
+
+
+    /*
     const [rows] =   await  pool.query('SELECT * FROM platos')
 
      return (rows);
- 
+ */
 /*
      return( {
       id: 123,

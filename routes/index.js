@@ -1,5 +1,7 @@
  
  import {platosRouter } from './platos.router.js' ;
+ import {ingredientesRouter } from './ingredientes.router.js' ;
+
  
 
 import  express   from 'express' ;
@@ -49,7 +51,11 @@ export function routerApi(app){
 
  
 
-    app.use ('/products', platosRouter);
+    app.use ('/platos', platosRouter);
+
+    app.use ('/ingredientes', ingredientesRouter);
+
+    
 
 }
 
