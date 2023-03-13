@@ -1,18 +1,22 @@
-import   {pool }  from '../db.js'
+import mysql from "mysql2";
+
+import {
+  DB_HOST,
+  DB_NAME,
+  DB_PASSWORD,
+  DB_USER,
+  DB_PORT
+} from './../config.js'
+
+
+const pool = mysql.createPool({
+    host: DB_HOST,
+    user: DB_USER,
+    port: DB_PORT,
+    password:  DB_PASSWORD,
+    database: DB_NAME
+});
  
-
-function getResult(sql){
-    return new Promise(function(resolve,reject){
-      pool.query(sql, function(err, result){
-        if(err){
-          reject(err)
-        }else{
-          resolve(result)
-        }
-      })
-    })
-  }
-
   const promisePool = pool.promise();
   async function runQueries() {
     let connection;
@@ -31,7 +35,8 @@ function getResult(sql){
         if (connection) connection.release();
     }
 }
-https://stackoverflow.com/questions/67776182/manage-nested-queries-for-mysql-in-node-js
+
+//https://stackoverflow.com/questions/67776182/manage-nested-queries-for-mysql-in-node-js
 
 const [rows] =  runQueries('SELECT * FROM platos');
 
