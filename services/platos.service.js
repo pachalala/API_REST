@@ -109,6 +109,28 @@ export  class PlatosService {
     /*
     const [rows] =   await  pool.query('SELECT * FROM platos')
 
+    const row_out =  rows.map(r =>  {
+      
+      return {...item, ingredientes:  await  pool.query('SELECT idIngrediente, gramos as grs FROM ingredientes_platos  where idPlato={r.ID}')};
+    
+
+    }
+      )
+    
+
+    const [rows] =   await  pool.query('SELECT idIngrediente, gramos as grs FROM ingredientes_platos  where idPlato=')
+    
+    (item)=> { 
+
+      // Parsing price string to number value
+    
+      const price = Number(item.price.replace("$", ""))
+    
+      return {...item, total: `\$${price*item.quantity}`}
+    
+
+
+
      return (rows);
  */
 /*
