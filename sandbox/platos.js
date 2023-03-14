@@ -18,14 +18,14 @@ const pool = mysql.createPool({
 });
  
   const promisePool = pool.promise();
-  async function runQueries() {
+  async function runQueries(sql) {
     let connection;
     try {
         connection = await promisePool.getConnection();
         await connection.beginTransaction();
-        const results = await connection.query("some query");
+        const results = await connection.query(sql);
         await connection.commit();
-        console.log(results); // or console.table(results);
+     //   console.log(results); // or console.table(results);
         return results;
     }
     catch (error) {
@@ -36,15 +36,48 @@ const pool = mysql.createPool({
     }
 }
 
+   await  runQueries('SELECT * FROM platos').then ( rows =>{
+    rows.map(r =>  {
+  
+        return {...rows, ingredientes: "xD"  };
+      //  return {...item, ingredientes:  await  pool.query('SELECT idIngrediente, gramos as grs FROM ingredientes_platos  where idPlato={r.ID}')};
+      
+      
+      }
+    
+    )
+});
+ 
+
+console.log(rows);
+
+
 //https://stackoverflow.com/questions/67776182/manage-nested-queries-for-mysql-in-node-js
 
-const [rows] =  runQueries('SELECT * FROM platos');
+/*
+const [row_out] =      runQueries('SELECT * FROM platos').then ( roui =>
+    {
 
-
-const row_out =  rows.map(  r =>   {
+        roui.map(  r =>   {
   
 
-    const holi =   runQueries( 'SELECT idIngrediente, gramos as grs FROM ingredientes_platos  where idPlato=' +r.ID)
+            const holi =  "x";//    runQueries( 'SELECT idIngrediente, gramos as grs FROM ingredientes_platos  where idPlato=' +r.ID)
+          
+             return {...r, ingredientes: holi } });
+          
+            //  return r;
+    }
+
+
+
+
+);
+*/
+/*
+const row_out =   rows.map(  r =>   {
+  
+
+    const holi =  async   runQueries( 'SELECT idIngrediente, gramos as grs FROM ingredientes_platos  where idPlato=' +r.ID)
   
      return {...r, ingredientes: holi } });
   
@@ -53,6 +86,7 @@ const row_out =  rows.map(  r =>   {
    
   
     console.log (row_out);
+*/
 
 /*
 const [rows] =   await  pool.query('SELECT * FROM platos')
@@ -68,4 +102,4 @@ const row_out =  rows.map(  r =>   {
  
 */
 
-  console.log (row_out);
+ // console.log (row_out);
