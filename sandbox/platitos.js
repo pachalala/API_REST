@@ -22,17 +22,27 @@ const [ring, fing] = await conn.execute(
   'SELECT idPlato, idIngrediente, gramos as grs FROM ingredientes_platos '
 );
 
-const row_out = rows.filter((r) => {
-
-  const _ingredientes = ring.map((ingre) => {
-    if (ingre.idPlato == r.ID) {
-      return [ingre.idIngrediente, ingre.grs];
-    }
-  });
-
+const row_out = rows.map((plato) => {
  
-  return { ...r, ingredientes: _ingredientes };
-  //   return {...r, ingredientes:5};
+    //    return ingre.idPlato == r.ID;
+
+
+  const _ingredientes =  ring.filter(ingrediente=>
+
+          { 
+            return ingrediente.idPlato == plato.ID;
+           }
+           ).map( ingre => {
+                return {
+                      idPlato : ingre.idPlato
+                    , id_ingrediente : ingre.idIngrediente
+                   , grs: ingre.grs
+                }
+            });
+ 
+ 
+  return { ...plato, ingredientes: _ingredientes };
+ 
 });
 
 

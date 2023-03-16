@@ -23,7 +23,45 @@ export  class PlatosService {
     return newProduct;
   }
 
+
+
+  
   async find() {
+   
+const [rows, fields] = await pool.execute('SELECT * FROM platos');
+
+const [ring, fing] = await pool.execute(
+  'SELECT idPlato, idIngrediente, gramos as grs FROM ingredientes_platos '
+);
+
+const row_out = rows.map((plato) => {
+ 
+    //    return ingre.idPlato == r.ID;
+
+
+  const _ingredientes =  ring.filter(ingrediente=>
+
+          { 
+            return ingrediente.idPlato == plato.ID;
+           }
+           ).map( ingre => {
+                return {
+                      idPlato : ingre.idPlato
+                    , id_ingrediente : ingre.idIngrediente
+                   , grs: ingre.grs
+                }
+            });
+ 
+ 
+  return { ...plato, ingredientes: _ingredientes };
+ 
+});
+
+     return row_out;
+
+  }
+
+  async find_b() {
    
     return(
 
