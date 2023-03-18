@@ -8,6 +8,9 @@ import  express   from 'express' ;
  
 import   {pool }  from '../db.js'
 
+
+
+
 //const productsRouter = express.Router();
  
 //const service = new ProductsService();

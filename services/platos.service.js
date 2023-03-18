@@ -42,7 +42,7 @@ const row_out = rows.map((plato) => {
   const _ingredientes =  ring.filter(ingrediente=>
 
           { 
-            return ingrediente.idPlato == plato.ID;
+            return ingrediente.idPlato == plato.id;
            }
            ).map( ingre => {
                 return {

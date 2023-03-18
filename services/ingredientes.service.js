@@ -24,7 +24,7 @@ export  class ingredientesService {
 
   async find() {
    
-    const [rows, fields] = await pool.execute('SELECT ID as id, NOMBRE as nombre, 0 as cantidad, false as chek FROM ingredientes');
+    const [rows, fields] = await pool.execute('SELECT ID as id, nombre as nombre, 0 as cantidad, false as chek FROM ingredientes');
     return(rows);
   
 
